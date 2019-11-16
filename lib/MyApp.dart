@@ -5,7 +5,9 @@ import 'MyApp2.dart';
 import 'materias.dart';
 
 class MyApp extends StatefulWidget {
-
+final Map correo;
+MyApp({this.correo});
+//Map<String, dynamic> user=jsonDecode(correo);
   @override
   _MyAppState createState() => new _MyAppState();
 
@@ -13,7 +15,15 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  MyApp app= new MyApp();
+  List userData;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    setState(() {
+      userData=widget.correo["data"];
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -26,8 +36,8 @@ class _MyAppState extends State<MyApp> {
         child: new ListView(
           children: <Widget>[
             new UserAccountsDrawerHeader(
-              accountName: new Text("Comercio Electrónico"),
-              accountEmail: new Text("correo"),
+              accountName: new Text('${userData[0]["user"]}'),
+              accountEmail: new Text('${userData[0]["email"]}'),
               currentAccountPicture: CircleAvatar(
                 backgroundImage: new NetworkImage(
                     "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTWwa83KBPQkFXW-JL0LEyBnifwd4t1bBzLU5S8uvnam-6daSvc"),

@@ -73,9 +73,11 @@ class _Login extends State<Login> {
        // MyApp a = new prefix0.MyApp();
        // a.setBody(json.decode(respuesta.body));
         Navigator.push(context,
-              new MaterialPageRoute(builder: (context) =>  MyApp()));
+              new MaterialPageRoute(builder: 
+              (context) =>  MyApp(correo: json.decode(respuesta.body),)));
         return json.decode(respuesta.body);
         //Redirigir a la pagina principal
+        
       }
     }
   }
