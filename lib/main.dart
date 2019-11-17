@@ -65,7 +65,7 @@ class _Login extends State<Login> {
       final int codigo = respuesta.statusCode;
       if (codigo == 400 || codigo == 404) {
         _mensajeAlerta();
-        return null; // Usuario no encontrado
+         // Usuario no encontrado
       }
       if (codigo == 200) {
         print("Registro encontrado"); //Usuario encontrado
@@ -89,7 +89,7 @@ class _Login extends State<Login> {
       child: CircleAvatar(
         backgroundColor: Colors.transparent,
         radius: 48.0,
-        child: Image.asset('img/logoUes.png'),
+        child: Image.asset('icon/ues.png'),
       ),
     );
 

@@ -3,15 +3,15 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'MyApp2.dart';
 import 'materias.dart';
+import 'profile.dart';
+import 'main.dart';
 
 class MyApp extends StatefulWidget {
-final Map correo;
-MyApp({this.correo});
+  final Map correo;
+  MyApp({this.correo});
 //Map<String, dynamic> user=jsonDecode(correo);
   @override
   _MyAppState createState() => new _MyAppState();
-
-
 }
 
 class _MyAppState extends State<MyApp> {
@@ -21,9 +21,10 @@ class _MyAppState extends State<MyApp> {
     // TODO: implement initState
     super.initState();
     setState(() {
-      userData=widget.correo["data"];
+      userData = widget.correo["data"];
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -47,6 +48,14 @@ class _MyAppState extends State<MyApp> {
             new ListTile(
               leading: Icon(Icons.person),
               title: new Text("Perfil"),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (context) => new MyHomePage(
+                              user: userData,
+                            )));
+              },
             ),
             new ListTile(
               leading: Icon(Icons.adjust),
@@ -55,6 +64,14 @@ class _MyAppState extends State<MyApp> {
             new ListTile(
               leading: Icon(Icons.lock),
               title: new Text("Cerrar Sesión"),
+              onTap: (){
+                 Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (context) => new Login(
+                              
+                            )));
+              },
             ),
           ],
         ),
@@ -66,7 +83,14 @@ class _MyAppState extends State<MyApp> {
             new Card(
               margin: EdgeInsets.all(8.0),
               child: new InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                          builder: (context) => new MyHomePage(
+                                user: userData,
+                              )));
+                },
                 splashColor: Colors.red,
                 child: new Center(
                   child: new Column(

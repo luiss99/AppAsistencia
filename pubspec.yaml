@@ -34,7 +34,7 @@ dev_dependencies:
 
 flutter:
   assets:
-    - icon/ues.png
+  - icon/ues.png
    
 
   uses-material-design: true
