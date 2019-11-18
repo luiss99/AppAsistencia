@@ -5,6 +5,7 @@ import 'MyApp2.dart';
 import 'materias.dart';
 import 'profile.dart';
 import 'main.dart';
+import 'crearMaterias.dart';
 
 class MyApp extends StatefulWidget {
   final Map correo;
@@ -129,7 +130,11 @@ class _MyAppState extends State<MyApp> {
             ),
             new Card(
               child: new InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context,
+                      new MaterialPageRoute(builder: (context) => new CrearMaterias()));
+
+                },
                 splashColor: Colors.red,
                 child: new Center(
                   child: new Column(
